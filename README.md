@@ -28,4 +28,12 @@ jupyter notebook notebooks/5243_CodeFile.ipynb
 - Data Cleaning: Standardizes area and price units, handles missing values, and removes duplicates.  
 - EDA: Analyzes property pricing trends, categorical distributions, and correlations.  
 - Feature Engineering: Creates derived features and applies TF-IDF for text analysis.  
-- Outlier Handling: Uses Z-score and IQR filtering to remove extreme values.  
+- Outlier Handling: Uses Z-score and IQR filtering to remove extreme values.
+
+## Group Distribution
+**Yi Lu**: Data Cleaning and Handling Inconsistencies
+**Shenghong Wu**: Exploratory Data Analysis
+**Jiaheng Zhang**: Data Preprocessing and Feature Engineering
+**Mingyan Xu**: Report Wrting
+
+
