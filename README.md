@@ -2,7 +2,7 @@
 This project focuses on data cleaning, exploratory data analysis (EDA), and feature engineering for a real estate dataset. The dataset has been processed to handle missing values, outliers, and inconsistencies, followed by feature extraction and transformation for predictive modeling.
 
 ## Repository Structure
-README.md                  # Project documentation   
+README.md                  – Project documentation  
 5243_raw_data.csv          # raw data before cleaning  
 5243_cleaned_data.csv      # cleaned data  
 5243_knn2_data.csv         # cleaned data using knn2 which is used in feature engieering step and part of the EDA  
