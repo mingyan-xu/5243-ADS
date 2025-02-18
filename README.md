@@ -9,7 +9,7 @@ git clone https://github.com/mingyan-xu/RealSTAT5243 Project.git
 cd STAT5243 Project1
 ```
 
-3. Run Python file
+2. Run Python file
 ```{python} 
 jupyter notebook notebooks/5243_CodeFile.ipynb
 ```
