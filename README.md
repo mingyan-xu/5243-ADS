@@ -6,7 +6,7 @@ This project focuses on data cleaning, exploratory data analysis (EDA), and feat
 - **5243_raw_data.csv** – Raw data before cleaning  
 - **5243_cleaned_data.csv** – Cleaned data  
 - **5243_knn2_data.csv** – Cleaned data using KNN2 (used in feature engineering and part of EDA)  
-- **5243_Code_file.ipynb** – Jupyter Notebook containing all three steps (cleaning, EDA, feature engineering)  
+- **Project1_Code_file.ipynb** – Jupyter Notebook containing all three steps (cleaning, EDA, feature engineering)  
 - **Project1_report.pdf** – Final project report (PDF format)  
 - **Project1_report.qmd** – Final project report (Quarto format)  
 
