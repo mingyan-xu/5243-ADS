@@ -3,11 +3,11 @@ This project focuses on data cleaning, exploratory data analysis (EDA), and feat
 
 ## How to Run
 
-1. Clone the Repository
-git clone https://github.com/mingyan-xu/RealSTAT5243 Project.git
+1. Clone the Repository  
+git clone https://github.com/mingyan-xu/RealSTAT5243 Project.git  
 cd STAT5243 Project1
 
-2. Run Python file
+2. Run Python file  
 jupyter notebook notebooks/5243_CodeFile.ipynb
 
 ## Key Features
