@@ -5,8 +5,8 @@ This project focuses on data cleaning, exploratory data analysis (EDA), and feat
 
 1. Clone the Repository
 ```{python} 
-git clone https://github.com/mingyan-xu/RealSTAT5243 Project.git  
-cd STAT5243 Project1
+git clone https://github.com/mingyan-xu/STAT5243-Project1.git  
+cd STAT5243-Project1
 ```
 
 2. Run Python file
