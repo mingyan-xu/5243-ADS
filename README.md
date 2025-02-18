@@ -9,8 +9,11 @@ git clone https://github.com/mingyan-xu/RealSTAT5243 Project.git
 cd STAT5243 Project1
 ```
 
-3. Run Python file  
+3. Run Python file
+```{python} 
 jupyter notebook notebooks/5243_CodeFile.ipynb
+```
+
 
 ## Key Features
 - Data Cleaning: Standardizes area and price units, handles missing values, and removes duplicates.  
