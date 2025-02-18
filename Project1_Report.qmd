@@ -14,7 +14,7 @@ In this project, we focus on the comprehensive data pipeline, including data acq
 
 ## 2. Data Acquisition Methodology
 
-The core dataset for this project is sourced from the [Flats Uncleaned Dataset](https://www.kaggle.com/datasets/kunjadiyarohit/flats-uncleaned-dataset/data)\[1\] on Kaggle. This dataset includes various features, including price, area, floor and location, offering multiple dimensions for analysis. While the data originates from a single public repository, we particular pay attention to its quality and complexity. The dataset presents substantial data quality challenges such as missing values, inconsistent labels, and formatting discrepancies, reflecting the complexities of real-world data acquisition. The acquisition phase emphasizes data completeness, potential business relevance, and automated data loading with preliminary checks, laying the groundwork for subsequent cleaning and analysis.
+The core dataset for this project is sourced from the [Flats Uncleaned Dataset](https://www.kaggle.com/datasets/kunjadiyarohit/flats-uncleaned-dataset/data) on Kaggle. This dataset includes various features, including price, area, floor and location, offering multiple dimensions for analysis. While the data originates from a single public repository, we particular pay attention to its quality and complexity. The dataset presents substantial data quality challenges such as missing values, inconsistent labels, and formatting discrepancies, reflecting the complexities of real-world data acquisition. The acquisition phase emphasizes data completeness, potential business relevance, and automated data loading with preliminary checks, laying the groundwork for subsequent cleaning and analysis.
 
 The dataset before cleaning consists of **4,525 rows and 11 columns**, containing real estate property listings with various attributes. The table below provides an overview of each column:
 
@@ -278,7 +278,3 @@ This project involved **data cleaning, exploratory data analysis (EDA), and feat
 **Jiaheng Zhang**: Data Preprocessing and Feature Engineering
 
 **Mingyan Xu**: Report Wrting
-
-## 9. References
-
-\[1\]<https://www.kaggle.com/datasets/kunjadiyarohit/flats-uncleaned-dataset/data>
