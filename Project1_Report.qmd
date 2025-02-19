@@ -269,6 +269,29 @@ This project involved **data cleaning, exploratory data analysis (EDA), and feat
 
 ## 7. Challenges and Recommendations
 
+### Challenges:
+
+-   The data is very dirty, and we don't know which parts of the data are problematic. Some problem data may not be identified, thereby destroying the consistency of the data.
+
+```{=html}
+<!-- -->
+```
+-   Selecting the most effective charts to represent price distributions and transaction trends was challenging. Some visualizations (like violin plots) were harder to interpret for non-technical audience.
+
+-   This dataset contains many extreme values in price and area created difficulties in visualization and modeling.
+
+-   Although feature analysis of the varaibles in the table can be utilized to help predict the listing price for the property like total area, floor, furnishing and so on, some other factors may also play a great role in determining the price like CPI, policy, resident purchasing power.
+
+### Recommendations:
+
+-   Before processing the data, we can first visualize the data to help us better discover problematic parts of the data. For the KNN part, we arbitrarily set K=2. In the future, we can try more values ​​of K to better fill in the missing data.
+
+-   After visualization, we can check the graph to do the cleaning again so that we can remove or modify the extreme values or outliers.
+
+-   Use boxplots for price comparisons (helps show outliers clearly).Use scatterplots with transparency (alpha blending) to improve readability. Use annotations to highlight key trends or anomalies in the data.
+
+-   In further study, more variables can be imported to help build a better prediction model. We can also set a index for some suppotive or negative policies.
+
 ## 8. Group Distribution
 
 **Yi Lu**: Data Cleaning and Handling Inconsistencies
@@ -277,4 +300,6 @@ This project involved **data cleaning, exploratory data analysis (EDA), and feat
 
 **Jiaheng Zhang**: Data Preprocessing and Feature Engineering
 
-**Mingyan Xu**: Report Wrting
+**Mingyan Xu**: Final compilation and report writing
+
+Our project, including code and dataset, is available in [Github](https://github.com/mingyan-xu/STAT5243-Project1).
