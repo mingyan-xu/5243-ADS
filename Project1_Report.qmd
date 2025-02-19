@@ -288,7 +288,7 @@ This project involved **data cleaning, exploratory data analysis (EDA), and feat
 
 -   After visualization, we can check the graph to do the cleaning again so that we can remove or modify the extreme values or outliers.
 
--   Use boxplots for price comparisons (helps show outliers clearly).Use scatterplots with transparency (alpha blending) to improve readability. Use annotations to highlight key trends or anomalies in the data.
+-   Use boxplots for price comparisons (helps show outliers clearly). Use scatterplots with transparency (alpha blending) to improve readability. Use annotations to highlight key trends or anomalies in the data.
 
 -   In further study, more variables can be imported to help build a better prediction model. We can also set a index for some suppotive or negative policies.
 
