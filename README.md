@@ -31,9 +31,9 @@ jupyter notebook notebooks/5243_CodeFile.ipynb
 - Outlier Handling: Uses Z-score and IQR filtering to remove extreme values.
 
 ## Group Distribution
-**Yi Lu**: Data Cleaning and Handling Inconsistencies
-**Shenghong Wu**: Exploratory Data Analysis
-**Jiaheng Zhang**: Data Preprocessing and Feature Engineering
-**Mingyan Xu**: Report Wrting
+**Yi Lu**: Data Cleaning and Handling Inconsistencies  
+**Shenghong Wu**: Exploratory Data Analysis  
+**Jiaheng Zhang**: Data Preprocessing and Feature Engineering  
+**Mingyan Xu**: Report Wrting  
 
 
