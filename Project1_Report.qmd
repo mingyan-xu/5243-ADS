@@ -19,7 +19,7 @@ The core dataset for this project is sourced from the [Flats Uncleaned Dataset]
 The dataset before cleaning consists of **4,525 rows and 11 columns**, containing real estate property listings with various attributes. The table below provides an overview of each column:
 
 | Column Name        | Description                                                                                  |
-|-------------------------|----------------------------------------------|
+|--------------------------|----------------------------------------------|
 | **property_name**  | The name or identifier of the property listing.                                              |
 | **areaWithType**   | The name of the locality along with its type (e.g., district, suburb, or city).              |
 | **square_feet**    | The total area of the property in square feet.                                               |
@@ -272,14 +272,8 @@ This project involved **data cleaning, exploratory data analysis (EDA), and feat
 ### Challenges:
 
 -   The data is very dirty, and we don't know which parts of the data are problematic. Some problem data may not be identified, thereby destroying the consistency of the data.
-
-```{=html}
-<!-- -->
-```
 -   Selecting the most effective charts to represent price distributions and transaction trends was challenging. Some visualizations (like violin plots) were harder to interpret for non-technical audience.
-
 -   This dataset contains many extreme values in price and area created difficulties in visualization and modeling.
-
 -   Although feature analysis of the varaibles in the table can be utilized to help predict the listing price for the property like total area, floor, furnishing and so on, some other factors may also play a great role in determining the price like CPI, policy, resident purchasing power.
 
 ### Recommendations:
