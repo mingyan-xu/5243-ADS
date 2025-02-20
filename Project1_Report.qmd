@@ -19,7 +19,7 @@ The core dataset for this project is sourced from the [Flats Uncleaned Dataset]
 The dataset before cleaning consists of **4,525 rows and 11 columns**, containing real estate property listings with various attributes. The table below provides an overview of each column:
 
 | Column Name        | Description                                                                                  |
-|--------------------------|----------------------------------------------|
+|--------------------|----------------------------------------------------------------------------------------------|
 | **property_name**  | The name or identifier of the property listing.                                              |
 | **areaWithType**   | The name of the locality along with its type (e.g., district, suburb, or city).              |
 | **square_feet**    | The total area of the property in square feet.                                               |
@@ -46,22 +46,14 @@ The dataset contained inconsistencies in unit representations, requiring standar
 
 #### **3.2.1 Standardizing Area Units**
 
-The `square_feet` column had multiple units (`sqm`, `sqyrd`, `acre`, `sqft`), leading to inconsistencies in area representation. The following steps were performed:
-
--   Extracted the unit suffix from `square_feet` and identified invalid or unexpected units and replaced them with `NaN`.
-
--   Converted all area measurements to **square feet (sqft)**: **1 sqm → 10.7639 sqft, 1 sqyrd → 9 sqft, 1 acre → 43,560 sqft**
-
--   Renamed the column to `area_sqft` for clarity.
+The `square_feet` column had multiple units (`sqm`, `sqyrd`, `acre`, `sqft`), leading to inconsistencies in area representation. The following steps were performed: - Extracted the unit suffix from `square_feet` and identified invalid or unexpected units and replaced them with `NaN`. - Converted all area measurements to **square feet (sqft)**: **1 sqm → 10.7639 sqft, 1 sqyrd → 9 sqft, 1 acre → 43,560 sqft** - Renamed the column to `area_sqft` for clarity.
 
 #### **3.2.2 Standardizing Price and Price Per Square Foot**
 
 The `price` and `price_per_sqft` columns contained variations in format, including Indian Rupee symbols and unit abbreviations (`Lac`, `Cr`). The following transformations were applied:
 
 -   Removed the currency symbol and extracted numerical values.
-
 -   Standardized price units: **1 Cr → 100 Lac** (converted to a common unit in Lac).
-
 -   Converted `price_per_sqft` to numeric values and ensured unit consistency (`per sqft`).
 
 ### 3.3 Cleaning Categorical Variables
@@ -89,13 +81,9 @@ After resolving data inconsistencies and formatting issues, we handled missing v
 For categorical variables, missing values were imputed using the **mode** (most frequently occurring value), as this method preserves the most common category while maintaining the distribution of the dataset. The following categorical columns were processed:
 
 -   **`transaction`**: Filled with the most frequent transaction type.
-
 -   **`furnishing`**: Replaced missing values with the most common furnishing status.
-
 -   **`areaWithType`**: Imputed based on the most frequent area type.
-
 -   **`facing`**: Missing orientations were assigned the most commonly observed value.
-
 -   **`status`**: Standardized using the most frequent property status.
 
 This approach ensures that missing categorical values are replaced with the most representative option while preventing distortions in the dataset.
@@ -105,13 +93,9 @@ This approach ensures that missing categorical values are replaced with the most
 For numerical variables, missing values were replaced with the **median** instead of the mean to avoid the influence of extreme outliers. The following numerical columns were processed:
 
 -   **`area_sqft`**: Imputed using the median property area to maintain consistency.
-
 -   **`property_floor`**: Rounded median values were assigned to missing entries.
-
 -   **`total_floor`**: Median-based imputation was applied to preserve structural integrity.
-
 -   **`price_per_sqft`**: Imputed using the median value to align with market pricing trends.
-
 -   **`price_Lac`**: Median-based imputation was performed for missing property prices.
 
 ## 4. Exploratory Data Analysis (EDA)
@@ -125,11 +109,8 @@ The four bar charts illustrate the distribution of key categorical variables: *
 ### ![](images/clipboard-3528177045.png)
 
 -   **Furnishing Status:** The majority of properties are **unfurnished**, while semi-furnished and fully furnished properties are significantly less common. This suggests that most buyers prefer to furnish properties themselves.
-
 -   **Transaction Type:** **Resale properties** dominate the dataset, indicating a more active secondary market compared to new property sales.
-
 -   **Area Type:** **Super Area** is the most frequently reported measurement, followed by **Carpet Area**, while Plot Area and Built Area account for a smaller portion of the listings.
-
 -   **Facing Direction:** **East-facing properties are the most common**, possibly due to cultural or environmental preferences, while other directions like South and West are less frequently listed.
 
 These distributions provide valuable insights into **buyer preferences and market trends**, helping to understand the composition of the dataset.
@@ -155,7 +136,6 @@ The heatmap visualizes the **correlation between numerical features**, where da
 ![](images/clipboard-1351668694.png)
 
 -   Strong correlation:  **property_floor and total_floor (0.72)**, **price_per_sqft and price_area_ratio (0.98)**. However, the correlation between property_floor and total_floor is not particularly meaningful, as it simply reflects the structural relationship between a building’s floor count and individual unit floors rather than providing any analytical insight. **facing and furnishing_facing (0.79)** indicate that a property's orientation may influence its furnishing style, possibly due to regional or market preferences.
-
 -   Additionally, **transaction type and total_floor (-0.41)** implies that taller buildings tend to have different transaction patterns, which could be influenced by market trends or buyer preferences.
 
 ## 5. Data Preprocessing and Feature Engineering
@@ -164,12 +144,8 @@ The heatmap visualizes the **correlation between numerical features**, where da
 
 To further refine missing value imputation, a **K-Nearest Neighbors (KNN) imputer** was applied to numerical and categorical variables after encoding categorical values into numeric representations. The following steps were undertaken:
 
--   **Label Encoding**: Categorical columns (`transaction`, `furnishing`, `areaWithType`,
-
-     `facing`, `status`) were transformed into numerical form using **Label Encoding**.
-
+-   **Label Encoding**: Categorical columns (`transaction`, `furnishing`, `areaWithType`,  `facing`, `status`) were transformed into numerical form using **Label Encoding**.
 -   **KNN Imputation**: A **KNN Imputer with k=2** was applied, leveraging nearest neighbors to predict missing values based on similar properties.
-
 -   **Restoration of Original Categorical Labels**: Once imputation was complete, numerical values were mapped back to their categorical labels using the stored encodings.
 
 **Final Dataset Reconstruction**: The imputed dataset was reconstructed with original non-imputed columns (`property_name`, `description`) reintroduced for completeness.
@@ -211,24 +187,15 @@ To provide deeper insights into property characteristics, the following derived 
 We want to convert property descriptions into numerical features, allowing machine learning models to utilize textual information. By applying **TF-IDF (Term Frequency-Inverse Document Frequency)** , we extract key terms from property descriptions, such as "luxury" or "pool," and combine them with numerical features (e.g., area, price) to enhance model predictions. This minimizes information loss, makes the dataset more comprehensive, and enables the model to learn property characteristics more effectively, improving prediction accuracy.
 
 -   The TF-IDF matrix was created using **unigrams and bigrams** (`ngram_range=(1,2)`) with a **maximum of 200 features** to retain the most informative terms.
-
 -   The transformed TF-IDF features were concatenated with the original dataset, ensuring that textual information contributes to predictive modeling.
 
 ### **5.2.3 Data Normalization and Standardization**
 
-To ensure numerical stability and comparability across features, different scaling techniques were applied:
-
--   **MinMax Scaling (0-1 range)** was applied to `area_sqft` and `price_per_sqft` to preserve relative **differences**while constraining values within a fixed range.
-
--   **Standardization (Mean = 0, Standard Deviation = 1)** was applied to `price_Lac` and `total_floor` to **normalize** distributions and **handle varying scales.**
+To ensure numerical stability and comparability across features, different scaling techniques were applied: - **MinMax Scaling (0-1 range)** was applied to `area_sqft` and `price_per_sqft` to preserve relative **differences**while constraining values within a fixed range. - **Standardization (Mean = 0, Standard Deviation = 1)** was applied to `price_Lac` and `total_floor` to **normalize** distributions and **handle varying scales.**
 
 #### **5.2.4 Outlier Detection and Removal**
 
-To remove extreme values that could skew model training, we applied two methods:
-
--   **Z-Score Method**: Removed properties with `price_per_sqft` values **more than 3 standard deviations away** from the mean.
-
--   **Interquartile Range (IQR) Method**: Identified and removed outliers in `price_Lac`, ensuring **better data distribution balance**.
+To remove extreme values that could skew model training, we applied two methods: - **Z-Score Method**: Removed properties with `price_per_sqft` values **more than 3 standard deviations away** from the mean. - **Interquartile Range (IQR) Method**: Identified and removed outliers in `price_Lac`, ensuring **better data distribution balance**.
 
 ## 6. Summary of Key Findings
 
@@ -236,26 +203,19 @@ This project involved **data cleaning, exploratory data analysis (EDA), and feat
 
 ### 6.1 Data Cleaning and Preprocessing
 
--   **Standardized** area and price units, converting all area values to square feet and price values to Lacs.\
--   Removed 109 duplicate records and handled missing values using **mode imputation (categorical)** and **median imputation (numerical)**.\
+-   **Standardized** area and price units, converting all area values to square feet and price values to Lacs
+-   Removed 109 duplicate records and handled missing values using **mode imputation (categorical)** and **median imputation (numerical)**
 -   **Outliers in `price_per_sqft`** were detected using **Z-score and IQR methods**, and extreme values were removed.
 
 ### 6.2 Dataset Composition and Distribution
 
 -   Most properties are resale rather than newly developed, indicating a more **active secondary market**.
-
 -   **Unfurnished properties dominate** (\~60%), with fewer fully furnished listings, suggesting buyers prefer to furnish properties themselves.
-
 -   Super Area (57.7%) is the **most common area type**, meaning most listings include shared spaces in their measurements.
-
 -   **East-facing** properties are the most common, possibly due to cultural preferences or sunlight exposure benefits.
-
 -   Price and area distributions are **highly skewed**, with a few extreme values affecting the dataset.
-
 -   Strong correlation (0.98) between `price_per_sqft` and `price_area_ratio`, making one feature **redundant for modeling**.
-
 -   Facing direction and furnishing status (0.79 correlation) suggest that certain orientations are preferred for furnished homes.
-
 -   Weak correlation between `area_sqft` and `price_Lac`, indicating that location and other factors have a greater impact on price than size alone.
 
 ### 6.3 Feature Engineering
@@ -279,11 +239,8 @@ This project involved **data cleaning, exploratory data analysis (EDA), and feat
 ### Recommendations:
 
 -   Before processing the data, we can first visualize the data to help us better discover problematic parts of the data. For the KNN part, we arbitrarily set K=2. In the future, we can try more values ​​of K to better fill in the missing data.
-
 -   After visualization, we can check the graph to do the cleaning again so that we can remove or modify the extreme values or outliers.
-
 -   Use boxplots for price comparisons (helps show outliers clearly). Use scatterplots with transparency (alpha blending) to improve readability. Use annotations to highlight key trends or anomalies in the data.
-
 -   In further study, more variables can be imported to help build a better prediction model. We can also set a index for some suppotive or negative policies.
 
 ## 8. Group Distribution
